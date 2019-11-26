@@ -1,7 +1,15 @@
-<p>led works!</p>
+<div *ngIf="led">
+  <h1>
+    {{ led?.index + 1 }}
+  </h1>
 
-<h1>
-  {{ index + 1 }}
-</h1>
+  <div
+    (click)="handleClick($event)"
+    class="box"
+    [style.backgroundColor]="led?.color"
+  ></div>
 
-<div class="box" [style.backgroundColor]="color"></div>
+  <p>
+    {{ led?.color | piColor: 'hex6' }}
+  </p>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Led } from '../model/led';
 
 @Component({
   selector: 'pi-led',
@@ -6,11 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./led.component.scss']
 })
 export class LedComponent implements OnInit {
-  index = 1;
+  @Input('piLed')
+  led: Led;
 
-  color = 'yellow';
+  @Output()
+  ledChange = new EventEmitter<number>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  /**
+   * Reagiert auf das Klicken der bunten Büchse
+   */
+  handleClick(ev: MouseEvent) {
+    if (ev.ctrlKey) {
+      this.ledChange.emit(this.led.index);
+    }
+  }
 }
