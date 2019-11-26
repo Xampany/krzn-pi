@@ -13,5 +13,5 @@ export interface Led {
   /**
    * Die Durchsichtigkeit (0 = transparent, 1 = undurchsichtig)
    */
-  opactity?: number;
+  opacity?: number;
 }
