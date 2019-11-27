@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Led } from '../model/led';
 import { ColorService } from '../shared/color.service';
+import { tap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'pi-led-list',
@@ -13,11 +14,15 @@ export class LedListComponent implements OnInit {
   constructor(private service: ColorService) {}
 
   ngOnInit() {
-    const pro = this.service.readColors();
+    const leds$ = this.service.readColors();
 
-    pro.then(result => {
-      console.log(result);
-      this.leds = result;
-    });
+    leds$
+      .pipe(
+        delay(15000),
+        tap(res => console.log(res))
+      )
+      .subscribe({
+        next: leds => (this.leds = leds)
+      });
   }
 }
