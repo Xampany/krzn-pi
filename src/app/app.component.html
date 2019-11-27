@@ -1,3 +1,9 @@
 <h1>Willkommen!</h1>
 
-<pi-led-list></pi-led-list>
+<button (click)="visible = !visible">
+  Toggle
+</button>
+
+<pi-led-list #list></pi-led-list>
+
+<pi-action-bar (reload)="list.readLeds()"></pi-action-bar>

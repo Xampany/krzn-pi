@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { LedComponent } from './led/led.component';
 import { PiColorPipe } from './shared/pi-color.pipe';
 import { LedListComponent } from './led-list/led-list.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, LedComponent, PiColorPipe, LedListComponent],
+  declarations: [AppComponent, LedComponent, PiColorPipe, LedListComponent, ActionBarComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

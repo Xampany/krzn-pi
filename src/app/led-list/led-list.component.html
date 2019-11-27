@@ -1,10 +1,14 @@
 <p>led-list works!</p>
 
+<p>
+  {{ poll$ | async }}
+</p>
+
 <table>
   <tbody>
     <tr>
       <td *ngFor="let thing of leds">
-        <pi-led [piLed]="thing"></pi-led>
+        <pi-led [piLed]="thing" (ledChange)="setColor($event)"></pi-led>
       </td>
     </tr>
   </tbody>

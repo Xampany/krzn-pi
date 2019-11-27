@@ -1,10 +1,18 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  EventEmitter,
+  Output,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { Led } from '../model/led';
 
 @Component({
   selector: 'pi-led',
   templateUrl: './led.component.html',
-  styleUrls: ['./led.component.scss']
+  styleUrls: ['./led.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LedComponent implements OnInit {
   @Input('piLed')
