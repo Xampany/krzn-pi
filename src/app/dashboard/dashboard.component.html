@@ -1,0 +1,11 @@
+<p>dashboard works!</p>
+<div class="columns">
+  <div class="column is-one-third">
+    <pi-color-form></pi-color-form>
+  </div>
+  <div class="column">
+    <pi-led-list #list></pi-led-list>
+
+    <pi-action-bar (reload)="list.readLeds()"></pi-action-bar>
+  </div>
+</div>

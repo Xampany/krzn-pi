@@ -1,0 +1,8 @@
+<p>detail works!</p>
+<pi-led [piLed]="led" *ngIf="led; else loader"></pi-led>
+
+<ng-template #loader>
+  <p>
+    Bin am Laden am dran am sein...
+  </p>
+</ng-template>
